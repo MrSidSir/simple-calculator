@@ -2,64 +2,83 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Simple Calculator</title>
+    <title>Animated Calculator</title>
     <style>
+      /* Background with Gradient */
       body {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background: #f0f2f5;
+        background: linear-gradient(120deg, #ff5733, #ffbd33, #3385ff);
         font-family: Arial, sans-serif;
       }
 
+      /* Calculator Box */
       .calculator {
-        background: #fff;
+        background: rgba(255, 255, 255, 0.9);
         padding: 20px;
         border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        width: 300px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        width: 320px;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
       }
 
+      /* Input Display */
       .display {
         width: 100%;
-        height: 50px;
-        margin-bottom: 10px;
-        font-size: 24px;
+        height: 60px;
+        margin-bottom: 15px;
+        font-size: 26px;
         text-align: right;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-sizing: border-box;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: #fff;
+        color: #333;
+        box-shadow: inset 0px -3px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+      }
+      .display:focus {
+        transform: scale(1.02);
       }
 
+      /* Buttons Grid */
       .buttons {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
       }
 
+      /* Button Styling */
       button {
-        padding: 15px;
-        font-size: 18px;
+        padding: 16px;
+        font-size: 20px;
+        font-weight: bold;
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
         cursor: pointer;
-        background: #e0e0e0;
-        transition: background 0.2s ease;
+        background: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
+      /* Hover Effect */
       button:hover {
-        background: #d0d0d0;
+        background: #ffbd33;
+        transform: scale(1.1);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
       }
 
+      /* Operator Buttons */
       .operator {
-        background: #f9a825;
+        background: #ff5733;
         color: #fff;
       }
 
       .equal {
-        background: #4caf50;
+        background: #33ff57;
         color: #fff;
         grid-column: span 2;
       }
@@ -67,6 +86,18 @@
       .clear {
         background: #f44336;
         color: #fff;
+      }
+
+      /* Animation Effect */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
